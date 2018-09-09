@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Corbie&#39;s Blog</title>
+    <title>webpack基础配置时Node.js __dirname not defined问题 · Corbie&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -196,12 +196,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Corbie&#39;s Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">webpack基础配置时Node.js __dirname not defined问题</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Corbie's Blog.</a>
 </header>
@@ -213,24 +224,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            webpack基础配置时Node.js __dirname not defined问题
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">183</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/09/09</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -331,109 +386,59 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/09/Node.js中的__dirname/" >
-            
-                <span>webpack基础配置时Node.js __dirname not defined问题</span>
-        </a>
-        <div class="abstract-content">
-            ##问题：今天在webpack基础配置时，在webpack.config.js中配置output输出路径时遇到了一个ZZ问题：错误代码：12345output:&#123;		path: path.join(_dirname, &apos;./dist&apos;),		publicPath: &apos;/dist/&apos;,		filename: &apos;main.js&apos;	&#125;
-运行时总是报错：1ReferenceError: _dirname is not defined
-最后发现原因是：
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>##问题：<br>今天在webpack基础配置时，在webpack.config.js中配置output输出路径时遇到了一个ZZ问题：<br>错误代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">output:&#123;</span><br><span class="line">		path: path.join(_dirname, &apos;./dist&apos;),</span><br><span class="line">		publicPath: &apos;/dist/&apos;,</span><br><span class="line">		filename: &apos;main.js&apos;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行时总是报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ReferenceError: _dirname is not defined</span><br></pre></td></tr></table></figure></p>
+<p>最后发现原因是：</p>
+<blockquote>
+<p>You are using one underscore while this variable actually has two underscores at the beginning: <a href="http://nodejs.org/docs/latest/api/globals.html#globals_dirname" target="_blank" rel="noopener">http://nodejs.org/docs/latest/api/globals.html#globals_dirname</a></p>
+</blockquote>
+<p>是__dirname，而不是_dirname，dirname前面的下划线是两个…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">output:&#123;</span><br><span class="line">		path: path.join(__dirname, &apos;./dist&apos;),</span><br><span class="line">		publicPath: &apos;/dist/&apos;,</span><br><span class="line">		filename: &apos;main.js&apos;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>详情见：<a href="https://stackoverflow.com/questions/18556613/node-js-dirname-not-defined" target="_blank" rel="noopener">stackoverflow</a></p>
+<p>而且在使用sublime书写时其实已经提示出了错误，当使用一个下划线时，_dirname是白色无效的：<br><img src="https://raw.githubusercontent.com/CorbieInGZF/PicSource/master/pic/1.png" alt="">；当使用两个下划线时，__dirname是蓝色的有效提示：<br><img src="https://raw.githubusercontent.com/CorbieInGZF/PicSource/master/pic/2.png" alt=""></p>
 
-You are using one underscore whi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/09</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/08/29/test/" >
-            
-                <span>TEST</span>
-        </a>
-        <div class="abstract-content">
-            四级标题无序列表：-第一段-第二段-第三段
-有序列表：1.第一段2.第二段3.第三段简书
-
-一盏灯， 一片昏黄； 一简书， 一杯淡茶。 守着那一份淡定， 品读属于自己的寂寞。 保持淡定， 才能欣赏到最美丽的风景！ 保持淡定， 人生从此不再寂寞。
-
- 一盏灯， 一片昏黄；一简书， 一杯淡茶。 守着那一份淡定， 品读属于自己的寂寞。 保持淡定， 才能欣赏到最美丽的风景！ 保持淡定， 人生从此不再寂寞。
-hello world12first rowsecond row
-
-
-
-Name
-Academy
-score 
-
-
-
-
-Harry Potter
-Gryffindor
-90 
-
-
-Hermio...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://yoursite.com">John Doe</a>
+            <p>原文链接：<a href="http://yoursite.com/2018/09/09/Node.js中的__dirname/">http://yoursite.com/2018/09/09/Node.js中的__dirname/</a>
+            <p>发表日期：<a href="http://yoursite.com/2018/09/09/Node.js中的__dirname/">September 9th 2018, 11:31:28 pm</a>
+            <p>更新日期：<a href="http://yoursite.com/2018/09/09/Node.js中的__dirname/">September 9th 2018, 11:50:52 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/29</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/03/hello-world/" >
-            
-                <span>Hello World</span>
-        </a>
-        <div class="abstract-content">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-More info: Writing
-Run server1$ hexo server
-More...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/03</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/08/29/test/" title= "TEST">
+                    <div class="prevTitle">TEST</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -514,6 +519,24 @@ More...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -671,6 +694,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
