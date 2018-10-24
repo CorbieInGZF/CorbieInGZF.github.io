@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Corbie&#39;s Blog</title>
+    <title>数据结构知识点总结（C语言） · Corbie&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -210,7 +210,7 @@
                 <a href="/" >Corbie&#39;s Blog.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name"></a>
+                <a href="#" class="post-name">数据结构知识点总结（C语言）</a>
             </div>
     </div>
     
@@ -240,7 +240,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            [Untitled Post]
+            数据结构知识点总结（C语言）
             <!-- 404 -->
             
         </h1>
@@ -259,7 +259,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">525</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1,502</span>阅读时长: <span class="post-count reading-time">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -388,8 +388,7 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <hr>
-<h2 id="数据结构知识点总结（C语言）"><a href="#数据结构知识点总结（C语言）" class="headerlink" title="数据结构知识点总结（C语言）"></a>数据结构知识点总结（C语言）</h2><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="1、数据元素之间的关系——顺序存储和非顺序存储"><a href="#1、数据元素之间的关系——顺序存储和非顺序存储" class="headerlink" title="1、数据元素之间的关系——顺序存储和非顺序存储"></a>1、数据元素之间的关系——顺序存储和非顺序存储</h3><p>对应<strong>顺序存储结构</strong>和<strong>链式存储结构</strong>。<br>顺序存储结构：逻辑上相邻的元素存储在物理上相邻的两个单元中。<br>链式存储结构：元素的逻辑关系通过指针来表示，一般采用链表来实现。</p>
+        <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="1、数据元素之间的关系——顺序存储和非顺序存储"><a href="#1、数据元素之间的关系——顺序存储和非顺序存储" class="headerlink" title="1、数据元素之间的关系——顺序存储和非顺序存储"></a>1、数据元素之间的关系——顺序存储和非顺序存储</h3><p>对应<strong>顺序存储结构</strong>和<strong>链式存储结构</strong>。<br>顺序存储结构：逻辑上相邻的元素存储在物理上相邻的两个单元中。<br>链式存储结构：元素的逻辑关系通过指针来表示，一般采用链表来实现。</p>
 <h3 id="2、抽象数据类型"><a href="#2、抽象数据类型" class="headerlink" title="2、抽象数据类型"></a>2、抽象数据类型</h3><p>只关心逻辑特征，不需要了解它的存储方式。</p>
 <h3 id="3、算法"><a href="#3、算法" class="headerlink" title="3、算法"></a>3、算法</h3><p>数据结构 + 算法 = 程序<br><strong>算法的度量</strong>：<br>（1）时间复杂度——运行算法时所消耗的时间资源（T(n))<br>（2）空间复杂度——算法在计算机内执行所需存储空间的度量。（O(N))  </p>
 <p><1>赋值语句的运行时间为1（O(1))  </1></p>
@@ -398,8 +397,18 @@ height:50vh;
 <p><4>其余以此类推…</4></p>
 <h2 id="第二章-线性表"><a href="#第二章-线性表" class="headerlink" title="第二章 线性表"></a>第二章 线性表</h2><p><strong>线性表：由同一类型的数据元素构成的一种线性的数据结构</strong>  </p>
 <h3 id="线性表相关操作："><a href="#线性表相关操作：" class="headerlink" title="线性表相关操作："></a>线性表相关操作：</h3><p>1、遍历：首先判断表空操作，然后循环访问每个元素（使用求表长函数确定访问个数）<br>2、合并：<br>1）直接合并：首先扩大A表，依次取B表中的元素，判断是否存在于A表中，如不存在，则将其插入到A表中。<br>2）保序合并：首先建立一个空表C，然后将A与B中的元素依次插入到C中。可以设置两个指针i和j，分别指向A表和B表，如果i指向的元素小于等于j指向的元素，则将i指向的元素插入到 C表中，并将i后移，否则将j所指向的元素插入，并将j后移。</p>
-<p>###线性表顺序存储结构<br>用数组实现线性表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct node&#123;</span><br><span class="line">	ElemType data[MAXSIZE];//存放线性表的数组</span><br><span class="line">	int length;</span><br><span class="line">&#125;;</span><br><span class="line">typedef struct node SeqList;</span><br></pre></td></tr></table></figure></p>
-
+<p>###线性表顺序存储结构  </p>
+<h4 id="用数组实现线性表："><a href="#用数组实现线性表：" class="headerlink" title="用数组实现线性表："></a>用数组实现线性表：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">struct node&#123;</span><br><span class="line">	ElemType data[MAXSIZE];//存放线性表的数组</span><br><span class="line">	int length;//线性表的长度</span><br><span class="line">&#125;;</span><br><span class="line">typedef struct node SeqList;</span><br><span class="line">```  </span><br><span class="line">#### 顺序表的初始化：</span><br></pre></td></tr></table></figure>
+<p>void SeqListInit(SeqList L){<br>    L.length = 0;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#### 顺序表求长(略）  </span><br><span class="line">#### 顺序表取元操作：</span><br></pre></td></tr></table></figure></p>
+<p>ElemType SeqListGet(SeqListGet(SeqList L,int i){<br>    if((i&gt;=1)&amp;&amp;(i&lt;=L.length))<br>        return L.data[i-1];<br>    else{<br>        printf(“i 值不合法”);<br>        exit(0);<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#### 顺序表定位操作：</span><br></pre></td></tr></table></figure></p>
+<p>int SeqListLocate(SeqList L,ElemType e){<br>    i=1,<br>    while((i&lt;=L.length)&amp;&amp;(e&lt;&gt;L.data[i-1]))<br>        i++;<br>    if(i&lt;=L.length)<br>        return i;<br>    else{<br>        printf(“此元素不在表中”);<br>        return 0;<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#### 求前驱/后继操作（略）</span><br><span class="line">#### 顺序表前插操作</span><br></pre></td></tr></table></figure></p>
+<p>void SeqListInsert(SeqList L,int i,ElemType b){<br>    if(L.length==MAXSIZE){<br>        printf(“表已满，无法进行插入操作！”);<br>        exit (0);<br>    }<br>    if((i&lt;1)||(i&gt;L.length+1)){<br>        printf(“i不合法!”);<br>        exit(0);<br>    }<br>    for(j=L.length-1;j&gt;=i-1;j–)<br>        L.data[j+1]=L.data[j];<br>        L.data{i-1]=b;<br>        L.length++;<br>}<br><code>`</code></p>
+<p>###线性表顺序存储结构<br><strong>线性表链式存储结构：元素存储在一个结点中——包含存储这个元素的单元和指向其后继结点的指针元素。</strong><br>1、单链表分为带头结点和不带头结点。<br>2、双向链表。<br>3、循环链表——第一个结点之前就是最后一个结点。<br><strong>链表相比线性表的优缺点：</strong><br>（1）链表的存储空间是动态分配，只要内存尚有空间，就不会产生溢出。<br>（2）便于实现插入和删除操作。只需要修改指针。<br>（3）链表不连续存储，导致它的内容分散，有时会调用不方便。<br>（4）链表既有数据域又有指针域，增加了存储开销。<br>（5）链表查找结点时，要从头指针开始遍历，增加时间开销。（循环链表解决了这一问题）<br><em>双向链表解决了单链表的单向性问题，但增加了结点的存储空间，使维护变得困难。</em>  </p>
+<h2 id="第三章-栈和队列"><a href="#第三章-栈和队列" class="headerlink" title="第三章 栈和队列"></a>第三章 栈和队列</h2><p><strong>栈：限定仅在表尾插入和删除的线性表（表尾——栈顶，表头——栈底）</strong><br>1、顺序栈  溢出（上溢、下溢）<br>2、链栈<br><em>顺序栈与链栈的时间复杂度均为O(1)。  
+</em>顺序栈的缺点：静态的，需要预先知道大小。（解决：双向栈）<br>*链栈的缺点：增加每个结点都要malloc和free，开销昂贵。（解决：第二个栈存储第一个栈弹出的元素，当第一个栈需要空间时，去第二个栈看是否有结点，有的话直接将其连接到第一个栈中）<br><strong>递归：</strong><br>1、直接递归：一个过程在执行前直接调用自身。<br>2、间接递归：A调用B，B再调用A，则称A通过B间接调用自身。<br><strong>队列：再顺序表的一端插入（队尾），另一端删除（队头），FIFO</strong><br>1、顺序队列溢出：<br>（1）下溢<br>（2）上溢<br>（3）假上溢：头尾指针只加不减，导致倍删除的元素的空间无法被再次利用。（提出循环队列）<br>2、循环队列：当首尾指针到达MAXSIZE-1时，又回到数组开头。所以不能以rear = front来判断是否空或者满。<br>解决：<br>（1）另设一标志区别队空和队满。<br>（2）少用一个元素空间，指定对头指针所在的位置不用来存放元素。当队尾指针绕一圈追上队头指针时队列满。满条件：(rear+1)%MAXSIZE == front，空条件：front == rear。<br>3、链队列：链表第一个结点存放队列头结点，最后一个存放队尾结点。<br>顺序、循环、链队列存储结构时间复杂度均为O(1)。<br>【1】顺序队列空间利用率不高，假上溢。<br>【2】循环队列克服了假上溢，但大小依旧是实现分配好的。<br>【3】链队列克服了大小分配固定问题，但还有malloc和free开销。</p>
+<h2 id="第四章-串"><a href="#第四章-串" class="headerlink" title="第四章 串"></a>第四章 串</h2><p><strong>字符串的简称</strong><br>顺序串和链串  </p>
+<h3 id="串的模式匹配"><a href="#串的模式匹配" class="headerlink" title="串的模式匹配"></a>串的模式匹配</h3><p>简单模式匹配（O（mn))<br>KMP算法(O(m+n))</p>
+<h2 id="第五章-数组及广义表"><a href="#第五章-数组及广义表" class="headerlink" title="第五章 数组及广义表"></a>第五章 数组及广义表</h2><h2 id="第六章-树和二叉树"><a href="#第六章-树和二叉树" class="headerlink" title="第六章 树和二叉树"></a>第六章 树和二叉树</h2>
     </article>
     <!-- license  -->
     
@@ -407,7 +416,7 @@ height:50vh;
             <p>原文作者：<a href="http://yoursite.com">John Doe</a>
             <p>原文链接：<a href="http://yoursite.com/2018/10/20/数据结构总结/">http://yoursite.com/2018/10/20/数据结构总结/</a>
             <p>发表日期：<a href="http://yoursite.com/2018/10/20/数据结构总结/">October 20th 2018, 12:17:41 pm</a>
-            <p>更新日期：<a href="http://yoursite.com/2018/10/20/数据结构总结/">October 20th 2018, 1:45:32 pm</a>
+            <p>更新日期：<a href="http://yoursite.com/2018/10/20/数据结构总结/">October 24th 2018, 8:55:40 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -536,7 +545,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构知识点总结（C语言）"><span class="toc-number">1.</span> <span class="toc-text">数据结构知识点总结（C语言）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第一章"><span class="toc-number">2.</span> <span class="toc-text">第一章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、数据元素之间的关系——顺序存储和非顺序存储"><span class="toc-number">2.1.</span> <span class="toc-text">1、数据元素之间的关系——顺序存储和非顺序存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、抽象数据类型"><span class="toc-number">2.2.</span> <span class="toc-text">2、抽象数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、算法"><span class="toc-number">2.3.</span> <span class="toc-text">3、算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二章-线性表"><span class="toc-number">3.</span> <span class="toc-text">第二章 线性表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线性表相关操作："><span class="toc-number">3.1.</span> <span class="toc-text">线性表相关操作：</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一章"><span class="toc-number">1.</span> <span class="toc-text">第一章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、数据元素之间的关系——顺序存储和非顺序存储"><span class="toc-number">1.1.</span> <span class="toc-text">1、数据元素之间的关系——顺序存储和非顺序存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、抽象数据类型"><span class="toc-number">1.2.</span> <span class="toc-text">2、抽象数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、算法"><span class="toc-number">1.3.</span> <span class="toc-text">3、算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二章-线性表"><span class="toc-number">2.</span> <span class="toc-text">第二章 线性表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线性表相关操作："><span class="toc-number">2.1.</span> <span class="toc-text">线性表相关操作：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用数组实现线性表："><span class="toc-number">2.1.1.</span> <span class="toc-text">用数组实现线性表：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三章-栈和队列"><span class="toc-number">3.</span> <span class="toc-text">第三章 栈和队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四章-串"><span class="toc-number">4.</span> <span class="toc-text">第四章 串</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#串的模式匹配"><span class="toc-number">4.1.</span> <span class="toc-text">串的模式匹配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第五章-数组及广义表"><span class="toc-number">5.</span> <span class="toc-text">第五章 数组及广义表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第六章-树和二叉树"><span class="toc-number">6.</span> <span class="toc-text">第六章 树和二叉树</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -627,7 +636,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/20</span><a class="archive-post-title" href= "/2018/10/20/数据结构总结/" >[Untitled Post]</a>
+            <span class="archive-post-date">10/20</span><a class="archive-post-title" href= "/2018/10/20/数据结构总结/" >数据结构知识点总结（C语言）</a>
         </li>
     
     
